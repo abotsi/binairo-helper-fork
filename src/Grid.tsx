@@ -1,15 +1,12 @@
 import * as React from "react";
 import GridItem from "./GridItem";
+import { gridState } from "./state";
 
 export default function Grid() {
   return (
-    <div>
-      {new Array(6).fill(null).map((_, row) => (
-        <div key={row}>
-          {new Array(6).fill(null).map((_, cell) => (
-            <GridItem key={cell} />
-          ))}
-        </div>
+    <div className="Grid">
+      {gridState.map((_, cell) => (
+        <GridItem key={cell} />
       ))}
     </div>
   );

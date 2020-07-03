@@ -6,8 +6,20 @@ body {
   text-align: center;
 }
 
-.GridItem {
-  height: 60px;
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  justify-items: center;
+  align-items: center;
+  grid-gap: 5px;
+
+  height: 95vmin;
+  width: 95vmin;
+  margin: auto;
+}
+
+button.GridItem {
+  height: 64px;
   border: solid grey 1px;
   font-size: 20px;
 }
