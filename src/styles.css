@@ -1,0 +1,13 @@
+body {
+  background-color: darkgray;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.GridItem {
+  height: 60px;
+  border: solid grey 1px;
+  font-size: 20px;
+}
