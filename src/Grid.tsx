@@ -1,6 +1,6 @@
-import * as React from "react";
-import GridItem from "./GridItem";
-import { gridState } from "./state";
+import * as React from 'react'
+import GridItem from './GridItem'
+import { gridState } from './state'
 
 export default function Grid() {
   return (
@@ -9,5 +9,5 @@ export default function Grid() {
         <GridItem key={cell} />
       ))}
     </div>
-  );
+  )
 }
