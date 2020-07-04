@@ -1,4 +1,9 @@
-const gridSizeState = 6;
-const gridState = new Array(gridSizeState * gridSizeState).fill(null);
+import { atom } from 'recoil'
+const gridSizeState = 6
 
-export { gridSizeState, gridState };
+const gridState = atom({
+  key: 'gridState',
+  default: new Array(gridSizeState * gridSizeState).fill(null),
+})
+
+export { gridState }
