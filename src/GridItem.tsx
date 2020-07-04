@@ -5,6 +5,7 @@ import { cellState } from './state'
 
 export default function({ index }) {
   const [value, setValue] = useRecoilState(cellState(index))
+  const displayLabel = ['O', 'I', ' ']
 
   return (
     <Button
@@ -20,7 +21,7 @@ export default function({ index }) {
         }
       }}
     >
-      {value}
+      {displayLabel[value]}
     </Button>
   )
 }

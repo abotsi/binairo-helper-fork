@@ -3,7 +3,7 @@ const gridSizeState = 6
 
 const gridState = atom({
   key: 'gridState',
-  default: new Array(gridSizeState * gridSizeState).fill(1),
+  default: new Array(gridSizeState * gridSizeState).fill(2),
 })
 
 const cellState = selectorFamily({
