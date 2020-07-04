@@ -1,7 +1,7 @@
 {
   "name": "binairo-helper",
   "version": "1.0.0",
-  "description": "A small UI to test some Recoil and CodeSandbox features ",
+  "description": "A small UI to play some Recoil, CSS Grid and CodeSandbox features",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
