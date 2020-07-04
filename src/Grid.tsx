@@ -8,7 +8,7 @@ const gridValues = useRecoilValue(gridState)
   return (
     <div className="Grid">
       {gridValues.map((_, cell) => (
-        <GridItem key={cell} />
+        <GridItem key={cell} index={cell} />
       ))}
     </div>
   )

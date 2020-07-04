@@ -1,20 +1,22 @@
 import * as React from 'react'
 import Button from '@material-ui/core/Button'
+import { useRecoilState } from 'recoil'
+import { cellState } from './state'
 
-export default function() {
-  const [value, setValue] = React.useState('_')
+export default function({ index }) {
+  const [value, setValue] = useRecoilState(cellState(index))
+
   return (
     <Button
       className="GridItem"
       onClick={() => {
-        if (value === '_') {
-          setValue('0')
-        }
-        if (value === '0') {
-          setValue('1')
-        }
-        if (value === '1') {
-          setValue('_')
+        switch (value) {
+          case 0:
+            return setValue(1)
+          case 1:
+            return setValue(2)
+          default:
+            return setValue(0)
         }
       }}
     >
