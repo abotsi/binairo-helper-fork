@@ -1,9 +1,22 @@
 body {
   background-color: darkgray;
 }
-.App {
+
+#App {
   font-family: sans-serif;
   text-align: center;
+}
+#toolbar {
+  display: flex;
+  width: 95vmin;
+  margin: auto;
+}
+#toolbar h1 {
+  flex: 1;
+  text-align: left;
+}
+#toolbar button {
+  margin: auto;
 }
 
 .Grid {
