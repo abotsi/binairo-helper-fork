@@ -22,4 +22,4 @@ const cellState = selectorFamily<number, number>({
   },
 })
 
-export { cellState, initialGrid }
+export { gridSizeState, initialGrid, gridState, cellState }
