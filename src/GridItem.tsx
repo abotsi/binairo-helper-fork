@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button'
 import { useRecoilState } from 'recoil'
 import { cellState } from './state'
 
-export default function({ index }) {
-  const [value, setValue] = useRecoilState(cellState(index))
+export default function({ index }: { index: number }) {
+  const [value, setValue] = useRecoilState<number>(cellState(index))
   const displayLabel = ['O', 'I', ' ']
 
   return (

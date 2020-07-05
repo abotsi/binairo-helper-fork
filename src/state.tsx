@@ -6,7 +6,7 @@ const gridState = atom({
   default: new Array(gridSizeState * gridSizeState).fill(2),
 })
 
-const cellState = selectorFamily({
+const cellState = selectorFamily<number, number>({
   key: 'cellState',
   get: (index: number) => ({ get }) => get(gridState)[index],
   set: (index: number) => ({ get, set }, newValue) => {
