@@ -1,4 +1,4 @@
-import { cloneUpdateAt } from './utils'
+import { cloneUpdateAt } from '../src/utils'
 
 it('should update an array item in a functional way', () => {
   const base = ['a', 'a', 'a']
