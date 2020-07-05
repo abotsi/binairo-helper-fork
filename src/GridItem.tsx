@@ -11,14 +11,8 @@ export default function({ index }: { index: number }) {
     <Button
       className="GridItem"
       onClick={() => {
-        switch (value) {
-          case 0:
-            return setValue(1)
-          case 1:
-            return setValue(2)
-          default:
-            return setValue(0)
-        }
+        const newValue = [1, 2, 0][value]
+        setValue(newValue)
       }}
     >
       {displayLabel[value]}

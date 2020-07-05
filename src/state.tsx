@@ -1,9 +1,11 @@
 import { atom, selectorFamily } from 'recoil'
+
 const gridSizeState = 6
+const initialGrid = new Array(gridSizeState * gridSizeState).fill(2)
 
 const gridState = atom({
   key: 'gridState',
-  default: new Array(gridSizeState * gridSizeState).fill(2),
+  default: initialGrid,
 })
 
 const cellState = selectorFamily<number, number>({
@@ -20,4 +22,4 @@ const cellState = selectorFamily<number, number>({
   },
 })
 
-export { gridState, cellState }
+export { cellState, initialGrid }
