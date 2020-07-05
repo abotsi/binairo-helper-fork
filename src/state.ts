@@ -1,4 +1,5 @@
 import { atom, selectorFamily } from 'recoil'
+import {cloneUpdateAt} from './utils'
 
 const gridSizeState = 6
 const initialGrid = new Array(gridSizeState * gridSizeState).fill(2)
@@ -13,11 +14,7 @@ const cellState = selectorFamily<number, number>({
   get: (index: number) => ({ get }) => get(gridState)[index],
   set: (index: number) => ({ get, set }, newValue) => {
     const oldGrid = get(gridState)
-    const newGrid = [
-      ...oldGrid.slice(0, index),
-      newValue,
-      ...oldGrid.slice(index + 1),
-    ]
+    const newGrid = cloneUpdateAt(oldGrid, index, newValue)
     set(gridState, newGrid)
   },
 })
