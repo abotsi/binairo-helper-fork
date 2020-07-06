@@ -1,13 +1,22 @@
 import { gridSizeState } from './state'
 
 export function computeNextMove(grid: number[]): number[] {
-  grid.forEach((cell, index) => {
-    if (index === 0) {
-      return
+  return grid.map((cell, i) => {
+    if (cell !== 2) {
+      return cell
     }
-    const col = index % gridSizeState
-    // const leftCell = !(index % gridSizeState) && grid[index - 1]
-    console.log(col)
+
+    const colNum = i % gridSizeState
+    if (
+      colNum < gridSizeState - 2 &&
+      grid[i + 1] !== 2 &&
+      grid[i + 1] === grid[i + 2]
+    ) {
+      return (grid[i + 1] + 1) % 2
+    }
+    if (colNum > 1 && grid[i - 1] !== 2 && grid[i - 1] === grid[i - 2]) {
+      return (grid[i + 1] + 1) % 2
+    }
+    return cell
   })
-  return grid
 }
