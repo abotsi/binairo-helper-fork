@@ -30,13 +30,28 @@ describe('apply rule 1', () => {
 
   describe('vertically', () => {
     it('should set a "1" above two adjacent "0"', () => {
-      expect(true).toBe(false)
+      // prettier-ignore
+      const oldGrid = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2]
+      // prettier-ignore
+      const targted = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2]
+      const newGrid = computeNextMove(oldGrid)
+      expect(newGrid).toEqual(targted)
     })
     it('should set a "1" under two adjacent "0"', () => {
-      expect(true).toBe(false)
+      // prettier-ignore
+      const oldGrid = [0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      // prettier-ignore
+      const targted = [0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      const newGrid = computeNextMove(oldGrid)
+      expect(newGrid).toEqual(targted)
     })
     it('should set a "0" next to two adjacent "1"', () => {
-      expect(true).toBe(false)
+      // prettier-ignore
+      const oldGrid = [2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] // prettier-ignore
+      // prettier-ignore
+      const targted = [1, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      const newGrid = computeNextMove(oldGrid)
+      expect(newGrid).toEqual(targted)
     })
   })
 })
