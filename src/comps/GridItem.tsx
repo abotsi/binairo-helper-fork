@@ -8,13 +8,7 @@ export default function({ index }: { index: number }) {
   const displayLabel = ['O', 'I', ' ']
 
   return (
-    <Button
-      className="GridItem"
-      onClick={() => {
-        const newValue = [1, 2, 0][value]
-        setValue(newValue)
-      }}
-    >
+    <Button className="GridItem" onClick={() => setValue((value + 1) % 3)}>
       {displayLabel[value]}
     </Button>
   )
