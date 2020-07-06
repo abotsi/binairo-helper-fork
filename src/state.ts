@@ -1,8 +1,8 @@
 import { atom, selectorFamily } from 'recoil'
-import {cloneUpdateAt} from './utils'
+import { cloneUpdateAt } from './utils'
 
-const gridSizeState = 6
-const initialGrid = new Array(gridSizeState * gridSizeState).fill(2)
+const gridSize = 6
+const initialGrid = new Array(gridSize * gridSize).fill(2)
 
 const gridState = atom({
   key: 'gridState',
@@ -19,4 +19,4 @@ const cellState = selectorFamily<number, number>({
   },
 })
 
-export { gridSizeState, initialGrid, gridState, cellState }
+export { gridSize, initialGrid, gridState, cellState }
