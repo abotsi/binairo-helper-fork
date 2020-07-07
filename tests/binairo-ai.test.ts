@@ -26,6 +26,14 @@ describe('apply rule 1', () => {
       const newGrid = computeNextMove(oldGrid)
       expect(newGrid).toEqual(targted)
     })
+    it('should set a "0" between two "1" on left and right', () => {
+      // prettier-ignore
+      const oldGrid = [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      // prettier-ignore
+      const targted = [2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      const newGrid = computeNextMove(oldGrid)
+      expect(newGrid).toEqual(targted)
+    })
   })
 
   describe('vertically', () => {
@@ -50,6 +58,14 @@ describe('apply rule 1', () => {
       const oldGrid = [2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] // prettier-ignore
       // prettier-ignore
       const targted = [1, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      const newGrid = computeNextMove(oldGrid)
+      expect(newGrid).toEqual(targted)
+    })
+    it('should set a "1" between two "0" above and under', () => {
+      // prettier-ignore
+      const oldGrid = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      // prettier-ignore
+      const targted = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
       const newGrid = computeNextMove(oldGrid)
       expect(newGrid).toEqual(targted)
     })
