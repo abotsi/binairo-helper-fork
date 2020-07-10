@@ -1,56 +1,45 @@
 import { gridSize } from '../state'
 
-interface checkGridParams {
-  grid: number[]
-  i: number
-}
+const testCellsEqual = (grid: number[], c1: number, c2: number) =>
+  grid[c1] !== 2 && grid[c1] === grid[c2]
 
-export function checkRule1Horizontal({ grid, i }: checkGridParams) {
+const toggleCell = (grid: number[], c: number) => (grid[c] + 1) % 2
+
+export function checkRule1Horizontal(grid: number[], i: number) {
   const colNum = i % gridSize
-  if (
-    colNum < gridSize - 2 &&
-    grid[i + 1] !== 2 &&
-    grid[i + 1] === grid[i + 2]
-  ) {
-    return (grid[i + 1] + 1) % 2
+  if (colNum < gridSize - 2 && testCellsEqual(grid, i + 1, i + 2)) {
+    return toggleCell(grid, i + 1)
   }
-  if (colNum > 1 && grid[i - 1] !== 2 && grid[i - 1] === grid[i - 2]) {
-    return (grid[i - 1] + 1) % 2
+  if (colNum > 1 && testCellsEqual(grid, i - 1, i - 2)) {
+    return toggleCell(grid, i - 1)
   }
   if (
     colNum > 0 &&
     colNum < gridSize - 1 &&
-    grid[i + 1] !== 2 &&
-    grid[i + 1] === grid[i - 1]
+    testCellsEqual(grid, i + 1, i - 1)
   ) {
-    return (grid[i + 1] + 1) % 2
+    return toggleCell(grid, i + 1)
   }
   return 2
 }
 
-export function checkRule1Vertical({ grid, i }: checkGridParams) {
+export function checkRule1Vertical(grid: number[], i: number) {
   const rowNum = Math.floor(i / gridSize)
   if (
     rowNum < gridSize - 2 &&
-    grid[i + gridSize] !== 2 &&
-    grid[i + gridSize] === grid[i + 2 * gridSize]
+    testCellsEqual(grid, i + gridSize, i + 2 * gridSize)
   ) {
-    return (grid[i + gridSize] + 1) % 2
+    return toggleCell(grid, i + gridSize)
   }
-  if (
-    rowNum > 1 &&
-    grid[i - gridSize] !== 2 &&
-    grid[i - gridSize] === grid[i - 2 * gridSize]
-  ) {
-    return (grid[i - gridSize] + 1) % 2
+  if (rowNum > 1 && testCellsEqual(grid, i - gridSize, i - 2 * gridSize)) {
+    return toggleCell(grid, i - gridSize)
   }
   if (
     rowNum > 0 &&
     rowNum < gridSize - 1 &&
-    grid[i + gridSize] !== 2 &&
-    grid[i + gridSize] === grid[i - gridSize]
+    testCellsEqual(grid, i + gridSize, i - gridSize)
   ) {
-    return (grid[i + gridSize] + 1) % 2
+    return toggleCell(grid, i + gridSize)
   }
   return 2
 }
